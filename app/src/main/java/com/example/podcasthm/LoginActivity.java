@@ -2,16 +2,16 @@ package com.example.podcasthm;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 // LoginActivity.java
 public class LoginActivity extends AppCompatActivity {
@@ -33,9 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = emailEditText.getText().toString();
-                String password = passwordEditText.getText().toString();
-                // Implement Supabase email authentication here
+                loginUser();
             }
         });
 
@@ -47,4 +45,42 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void loginUser() {
+        String email = emailEditText.getText().toString().trim();
+        String password = passwordEditText.getText().toString().trim();
+
+        // Validate email and password
+        if (TextUtils.isEmpty(email)) {
+            emailEditText.setError("Email is required");
+            return;
+        }
+        if (TextUtils.isEmpty(password)) {
+            passwordEditText.setError("Password is required");
+            return;
+        }
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            emailEditText.setError("Invalid email address");
+            return;
+        }
+
+        // Implement Firebase email authentication
+        authenticateUser(email, password);
+    }
+
+    private void authenticateUser(String email, String password) {
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Navigate to next activity
+                        startActivity(new Intent(LoginActivity.this, MainPage.class));
+                        finish();  // Optionally finish the login activity to prevent returning to it
+                    } else {
+                        // Show specific error message
+                        String errorMessage = task.getException() != null ? task.getException().getMessage() : "Authentication failed.";
+                        Toast.makeText(LoginActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
 }

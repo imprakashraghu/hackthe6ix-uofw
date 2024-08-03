@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="16dp">
+
+    <!-- Header with Date -->
+    <TextView
+        android:id="@+id/headerDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="03 November 2023"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Thumbnail Image -->
+    <ImageView
+        android:id="@+id/thumbnailImageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/thumbnail_description"
+        android:layout_below="@id/headerDate"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/applogo"
+        android:background="@drawable/image_border" />
+
+    <!-- Title Text -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_below="@id/thumbnailImageView"
+        android:layout_marginTop="8dp"
+        android:text="Technology"
+        android:layout_alignParentStart="true" />
+
+    <!-- Progress Bar -->
+    <SeekBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTextView"
+        android:layout_marginTop="8dp"
+        android:progress="4"
+        android:max="100"
+        android:thumb="@drawable/seekbar_thumb"
+        android:progressDrawable="@drawable/seekbar_progress" />
+
+    <!-- Playback Controls -->
+    <LinearLayout
+        android:id="@+id/playback_controls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/progressBar"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/play_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_play"
+            android:padding="12dp"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/pause_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pause"
+            android:textColor="#FFFFFF"
+            android:background="@color/black"
+            android:padding="12dp"
+            android:layout_marginStart="8dp"/>
+        <Button
+            android:id="@+id/ViewSource"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Source"
+            android:textColor="#FFFFFF"
+            android:background="@color/colorSecondary"
+            android:padding="12dp"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <!-- Transcript Section -->
+    <TextView
+        android:id="@+id/transcriptLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transcript"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:layout_below="@id/playback_controls"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/transcriptContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to Listenade's Your Favorite Updates."
+        android:textSize="14sp"
+        android:textColor="#555555"
+        android:layout_below="@id/transcriptLabel"
+        android:layout_marginTop="8dp" />
+</RelativeLayout>

@@ -1,35 +1,78 @@
-<!-- res/layout/activity_login.xml -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:background="@color/white"
+    android:padding="24dp">
 
+    <!-- App Logo or Title -->
+    <TextView
+        android:id="@+id/app_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PODHM"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="#FFEB3B"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Email Input Field -->
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email" />
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:padding="14dp"
+        android:background="@drawable/edittext_background"
+        android:textColor="#000000"
+        android:textColorHint="#757575"
+        android:layout_below="@+id/app_title"
+        android:layout_marginBottom="16dp" />
 
+    <!-- Password Input Field -->
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:padding="14dp"
+        android:background="@drawable/edittext_background"
+        android:textColor="#000000"
+        android:textColorHint="#757575"
+        android:layout_below="@+id/email"
+        android:layout_marginBottom="24dp" />
 
+    <!-- Login Button -->
+
+
+    <!-- Register Button -->
     <Button
         android:id="@+id/login_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login" />
+        android:text="Login"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_background"
+        android:padding="16dp"
+        android:layout_below="@+id/password"
 
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
+        android:textSize="16sp"
+        android:elevation="4dp"/>
     <TextView
         android:id="@+id/register_link"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New user? Register here"
+        android:textColor="#FFEB3B"
+        android:layout_below="@+id/login_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
         android:gravity="center"
-        android:textColor="@android:color/holo_blue_dark" />
+        android:textSize="16sp"/>
 
-</LinearLayout>
+</RelativeLayout>

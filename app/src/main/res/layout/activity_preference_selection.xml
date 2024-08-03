@@ -1,43 +1,76 @@
-<!-- res/layout/activity_preference_selection.xml -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:background="#FFFBEA"
+    android:padding="24dp">
 
+    <!-- Question Text -->
     <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please select you desired country"
+        android:textSize="20sp"
+        android:textColor="#FFEB3B"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:layout_centerVertical="true"
+        android:textStyle="bold"
+        android:padding="16dp"
+       />
+
+    <!-- HorizontalScrollView for RadioGroup -->
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Select your preferences"
-        android:textSize="18sp" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/title">
 
-    <RadioGroup
-        android:id="@+id/first_level_preferences"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <RadioButton
-            android:id="@+id/worldwide"
+        <!-- Horizontal RadioGroup for Region Selection -->
+        <LinearLayout
+            android:id="@+id/region_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Worldwide" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-        <RadioButton
-            android:id="@+id/united_states"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="United States" />
+            <!-- Worldwide Option -->
+            <RadioButton
+                android:id="@+id/worldwide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Worldwide"
+                android:textColor="#000000"
+                android:padding="8dp"
+                android:background="@drawable/radiobutton_background"
+                android:textSize="14sp"
+                android:layout_marginEnd="16dp"/>
 
-        <RadioButton
-            android:id="@+id/canada"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Canada" />
-    </RadioGroup>
+            <!-- United States Option -->
+            <RadioButton
+                android:id="@+id/us"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="United States"
+                android:textColor="#000000"
+                android:padding="8dp"
+                android:background="@drawable/radiobutton_background"
+                android:textSize="14sp"
+                android:layout_marginEnd="16dp"/>
 
-    <Button
-        android:id="@+id/next_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Next" />
-</LinearLayout>
+            <!-- Canada Option -->
+            <RadioButton
+                android:id="@+id/canada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Canada"
+                android:textColor="#000000"
+                android:padding="8dp"
+                android:background="@drawable/radiobutton_background"
+                android:textSize="14sp"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</RelativeLayout>

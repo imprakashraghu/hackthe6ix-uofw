@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">podcastHM</string>
+    <string name="app_name">podcastHM</string>'
+
+    <string name="header_image_description">Header image showcasing the podcast discovery feature</string>
+
+
+    <string name="thumbnail_description">Podcast Thumbnail</string>
+    <string name="title_default">Podcast Title</string>
+    <string name="content_default">Podcast Content</string>
+    <string name="play">Play</string>
+    <string-array name="country_options">
+        <item>canada</item>
+        <item>uS</item>
+    </string-array>
+
+    <string-array name="language_options">
+        <item>english</item>
+        <item>french</item>
+    </string-array>
+
+    <string-array name="category_options">
+        <item>top</item>
+        <item>technology</item>
+        <item>health</item>
+    </string-array>
+
+
 </resources>
