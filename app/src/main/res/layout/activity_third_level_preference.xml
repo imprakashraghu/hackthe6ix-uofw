@@ -1,0 +1,28 @@
+<!-- res/layout/activity_third_level_preference.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select specific preferences"
+        android:textSize="18sp" />
+
+    <RadioGroup
+        android:id="@+id/third_level_preferences"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Populate options dynamically based on second level selection -->
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/finish_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Finish" />
+</LinearLayout>

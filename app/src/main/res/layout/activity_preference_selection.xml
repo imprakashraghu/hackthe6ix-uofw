@@ -1,0 +1,43 @@
+<!-- res/layout/activity_preference_selection.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select your preferences"
+        android:textSize="18sp" />
+
+    <RadioGroup
+        android:id="@+id/first_level_preferences"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/worldwide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Worldwide" />
+
+        <RadioButton
+            android:id="@+id/united_states"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="United States" />
+
+        <RadioButton
+            android:id="@+id/canada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Canada" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Next" />
+</LinearLayout>
