@@ -26,7 +26,7 @@ exports.dataExtraction = onRequest(async (req, res) => {
     const countries = [
       // { id: 1, name: 'worldwide', code: 'w' },
       { id: 2, name: 'canada', code: 'ca' },
-      // { id: 3, name: 'usa', code: 'us' }
+      { id: 3, name: 'usa', code: 'us' }
     ]
 
     const languages = [
@@ -65,13 +65,13 @@ exports.scriptGeneration = onRequest(async (req, res) => {
     const dumpedDate = formatDateWithPadding(new Date())
 
     const categories = [
-      { id: 1, name: 'technology', interests: 'apple,nvdia,AI' },
+      { id: 1, name: 'technology', interests: 'apple,nvdia,AI,tesla' },
       { id: 2, name: 'top', interests: 'wildfire,olympics,elonmusk' }
     ]
     const countries = [
       // { id: 1, name: 'worldwide', code: 'w' },
       { id: 2, name: 'canada', code: 'ca' },
-      // { id: 3, name: 'usa', code: 'us' }
+      { id: 3, name: 'usa', code: 'us' }
     ]
 
     const languages = [
@@ -179,13 +179,13 @@ exports.audioGeneration = onRequest(async (req, res) => {
 
     const categories = [
       { id: 1, name: 'technology', interests: 'apple,nvdia,AI' },
-      { id: 2, name: 'top', interests: 'wildfire,olympics,elonmusk' }
+      { id: 2, name: 'top', interests: 'wildfire,olympics,elonmusk,tesla' }
     ]
 
     const countries = [
       // { id: 1, name: 'worldwide', code: 'w' },
       { id: 2, name: 'canada', code: 'ca' },
-      // { id: 3, name: 'usa', code: 'us' }
+      { id: 3, name: 'usa', code: 'us' }
     ]
 
     const languages = [
@@ -200,7 +200,7 @@ exports.audioGeneration = onRequest(async (req, res) => {
         for (let language of languages) {
 
           // 3. AUDIO GENERATION
-          const audioResponse = await elevenLabsAudioConversion(data[country.name+'-'+category.name+'-'+language.name], process.env.VOICE_ID, process.env.ELEVEN_LABS_API_KEY, language.name?.toLowerCase())
+          const audioResponse = await elevenLabsAudioConversion(data[country.name+'-'+category.name+'-'+language.name].content, process.env.VOICE_ID, process.env.ELEVEN_LABS_API_KEY, language.name?.toLowerCase())
           const audioBlob = Buffer.from(audioResponse)
           const fileName = 'podcast-audios/'+dumpedDate+'/'+country.name+'/'+category.name+'/'+language.name+'.mp3'
           const storageRef = storage.bucket('gs://podcast-hm.appspot.com')
